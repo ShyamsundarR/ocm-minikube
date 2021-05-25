@@ -97,3 +97,4 @@ Run command `$ kubectl get managedclusterview` on hub. If you see `No resources 
 
 ## Notes
 1. Kind references are hard-coded in [registration-operator](https://github.com/open-cluster-management/registration-operator). The diff removes `kind-` references from Makefile. For full compatibility, use `export HUB_CLUSTER=hub` and `export MANAGED_CLUSTER=cluster1` before installing. 
+2. If you want to add multiple managed clusters, you'll need to edit files in `registration-operators`. Replace `cluster1` with `theNameOfYourManagedCluster` in the following files: 1) `deploy/klusterlet/olm-catalog/klusterlet/manifests/klusterlet.clusterserviceversion.yaml`, 2) `deploy/klusterlet/config/samples/operator_open-cluster-management_klusterlets.cr.yaml`. Once this is done, follow the "Managed Cluster setup" section and replace `cluster1` with `theNameOfYourManagedCluster`.
